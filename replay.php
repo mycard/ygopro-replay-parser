@@ -1,4 +1,6 @@
-ygopro-replay-parser
-====================
-
-a ygopro replay parser to play in non-lua environment, suchas web. pro.exe is written by yuyu <https://github.com/d3protocol/ygoprowebparser> and a don't have source code. notice Fluorohydride said he will make a same thing later then this project will be deprecated.
+<?php
+	$filename = md5_file($_FILES["file"]["tmp_name"]).".yrp";
+	move_uploaded_file($_FILES["file"]["tmp_name"], "replay/".$filename);
+	exec("pro.exe ".$filename);
+	readfile('out/'.$filename);
+?>
